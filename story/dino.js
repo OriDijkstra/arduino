@@ -13,27 +13,16 @@ img1.src = "dino.png";
 var img2 = new Image();
 img2.src = "relfire.png";
 
+var img3 = new Image();
+img3.src = "cook.png"; // 새 이미지 파일 경로 설정
+
+
 var gameOverImg = new Image();
 gameOverImg.src = "duck.png"; // 이미지 파일명 설정
 
-var img3 = new Image();
-img3.onload = function() {
-    cook.draw();
-};
-img3.src = "cook.png";
-
-var cook = {
-    x: 200,
-    y: groundLevel-300, 
-    width: 250,
-    height: 300,
-    draw() {
-        ctx.drawImage(img3, this.x, this.y, this.width, this.height);
-    }
-};
 
 var dino = {
-    x: 500,
+    x: 550,
     y: groundLevel-90, 
     width: 90,
     height: 90,
@@ -48,8 +37,8 @@ class Cactus {
     constructor() {
         this.x = 1000;
         this.y = groundLevel - 50;
-        this.width = 50;
-        this.height = 50;
+        this.width = 45;
+        this.height = 45;
     }
     draw() {
         //ctx.fillStyle = "red";
@@ -66,24 +55,27 @@ var animation;
 var jumpHeight = 170;  // 점프 높이
 var jumpSpeed = 3;     // 점프 속도
 var gameOver = false; // 게임 오버 상태를 저장하는 변수 추가
+var floatSpeed = 0.05; // 이미지가 움직이는 속도
+var floatRange = 30; // 이미지가 움직이는 범위 (픽셀 단위)
+var floatOffset = 0; // 초기 오프셋 값
 
 
 function executePerFrame() {
+
+      //둥실둥실
+  floatOffset += floatSpeed;
+  var floatY = groundLevel - 180 - Math.sin(floatOffset) * floatRange;
+
     animation = requestAnimationFrame(executePerFrame);
     timer++;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // 땅 선 그리기
-    ctx.beginPath();
-    ctx.moveTo(0, groundLevel);
-    ctx.lineTo(canvas.width, groundLevel);
-    ctx.stroke();
+    
 
     if (timer % 120 === 0) {
         var cactus = new Cactus();
         cactuses.push(cactus);
     }
-
     cactuses.forEach((a, i, o) => {
         a.x -= 2;
         a.draw();
@@ -95,6 +87,17 @@ function executePerFrame() {
             score++;
         }
     });
+    ctx.drawImage(img3, 100, floatY, 150, 180); 
+    // 땅 선 그리기
+    ctx.beginPath();
+    ctx.moveTo(0, groundLevel);
+    ctx.lineTo(canvas.width, groundLevel);
+    ctx.stroke();
+
+
+  
+   
+   
     if (gameOver) {
         cancelAnimationFrame(animation);
         console.log("Game Over. Score: " + score);
@@ -125,7 +128,7 @@ function executePerFrame() {
 
     dino.draw();
     ctx.fillStyle = "black";
-    ctx.fillText(`Score: ${score}`, 20, 20);
+    ctx.fillText(`Score: ${score}`, 40, 40);
 }
 
 function isBumped(dino, cactus) {
