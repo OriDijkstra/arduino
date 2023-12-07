@@ -23,38 +23,40 @@ function connectNodes(node1, node2, color = 'black', width = 2, text = '') {
     textElement.setAttribute('x', midX);
     textElement.setAttribute('y', midY);
     textElement.setAttribute('fill', 'black');
-    textElement.setAttribute('font-size', '18');
+    textElement.setAttribute('font-size', '25');
+    textElement.setAttribute('stroke', 'white');  // 텍스트 테두리 색상
+    textElement.setAttribute('stroke-width', '0.6'); // 텍스트 테두리 두께
     textElement.textContent = text;
     svg.appendChild(textElement);
   }
 }
-connectNodes(document.getElementById('node1'), document.getElementById('node2'), 'black', 4, '1');
-connectNodes(document.getElementById('node1'), document.getElementById('node7'), 'black', 4, '1');
-connectNodes(document.getElementById('node1'), document.getElementById('node4'), 'black', 4, '1');
+connectNodes(document.getElementById('node1'), document.getElementById('node2'), 'black', 4, '11');
+connectNodes(document.getElementById('node1'), document.getElementById('node7'), 'black', 4, '29');
+connectNodes(document.getElementById('node1'), document.getElementById('node4'), 'black', 4, '10');
 
-connectNodes(document.getElementById('node2'), document.getElementById('node3'), 'black', 4, '1');
-connectNodes(document.getElementById('node2'), document.getElementById('node5'), 'black', 4, '1');
-connectNodes(document.getElementById('node2'), document.getElementById('node4'), 'black', 4, '1');
+connectNodes(document.getElementById('node2'), document.getElementById('node3'), 'black', 4, '5');
+connectNodes(document.getElementById('node2'), document.getElementById('node5'), 'black', 4, '15');
+connectNodes(document.getElementById('node2'), document.getElementById('node4'), 'black', 4, '10');
 
-connectNodes(document.getElementById('node3'), document.getElementById('node4'), 'black', 4, '1');
-connectNodes(document.getElementById('node3'), document.getElementById('node8'), 'black', 4, '1');
-connectNodes(document.getElementById('node3'), document.getElementById('node7'), 'black', 4, '1');
+connectNodes(document.getElementById('node3'), document.getElementById('node4'), 'black', 4, '12');
+connectNodes(document.getElementById('node3'), document.getElementById('node8'), 'black', 4, '20');
+connectNodes(document.getElementById('node3'), document.getElementById('node7'), 'black', 4, '15');
 
-connectNodes(document.getElementById('node4'), document.getElementById('node5'), 'black', 4, '1');
-connectNodes(document.getElementById('node4'), document.getElementById('node6'), 'black', 4, '1');
+connectNodes(document.getElementById('node4'), document.getElementById('node5'), 'black', 4, '6');
+connectNodes(document.getElementById('node4'), document.getElementById('node6'), 'black', 4, '10');
 
-connectNodes(document.getElementById('node5'), document.getElementById('node6'), 'black', 4, '1');
-connectNodes(document.getElementById('node5'), document.getElementById('node7'), 'black', 4, '1');
-connectNodes(document.getElementById('node5'), document.getElementById('node9'), 'black', 4, '1');
+connectNodes(document.getElementById('node5'), document.getElementById('node6'), 'black', 4, '9');
+connectNodes(document.getElementById('node5'), document.getElementById('node7'), 'black', 4, '11');
+connectNodes(document.getElementById('node5'), document.getElementById('node9'), 'black', 4, '15');
 
-connectNodes(document.getElementById('node6'), document.getElementById('node7'), 'black', 4, '1');
-connectNodes(document.getElementById('node6'), document.getElementById('node8'), 'black', 4, '1');
-connectNodes(document.getElementById('node6'), document.getElementById('node9'), 'black', 4, '1');
+connectNodes(document.getElementById('node6'), document.getElementById('node7'), 'black', 4, '23');
+connectNodes(document.getElementById('node6'), document.getElementById('node8'), 'black', 4, '16');
+connectNodes(document.getElementById('node6'), document.getElementById('node9'), 'black', 4, '13');
 
-connectNodes(document.getElementById('node7'), document.getElementById('node8'), 'black', 4, '1');
-connectNodes(document.getElementById('node7'), document.getElementById('node9'), 'black', 4, '1');
-connectNodes(document.getElementById('node7'), document.getElementById('node10'), 'black', 4, '1');
+connectNodes(document.getElementById('node7'), document.getElementById('node8'), 'black', 4, '12');
+connectNodes(document.getElementById('node7'), document.getElementById('node9'), 'black', 4, '15');
+connectNodes(document.getElementById('node7'), document.getElementById('node10'), 'black', 4, '14');
 
-connectNodes(document.getElementById('node8'), document.getElementById('node9'), 'black', 4, '1');
+connectNodes(document.getElementById('node8'), document.getElementById('node9'), 'black', 4, '18');
 
-connectNodes(document.getElementById('node9'), document.getElementById('node10'), 'black', 4, '1');
+connectNodes(document.getElementById('node9'), document.getElementById('node10'), 'black', 4, '16');
